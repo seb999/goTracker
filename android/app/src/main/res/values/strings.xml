@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">goTracker</string>
+    <string name="title_activity_main">goTracker</string>
+    <string name="package_name">dspx.goTracker.starter</string>
+    <string name="custom_url_scheme">dspx.goTracker.starter</string>
+</resources>

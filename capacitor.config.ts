@@ -1,7 +1,7 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'dspx.goTracker.starter',
+  appId: 'go.tracker.starter',
   appName: 'goTracker',
   webDir: 'www',
   server: {

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "170549306210",
+    "project_id": "gotracker-1",
+    "storage_bucket": "gotracker-1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:170549306210:android:208975b5b36c235905423b",
+        "android_client_info": {
+          "package_name": "go.tracker.starter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQVMJNFIJ1EtkCrzF20Vu84wcIrMhTIVw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

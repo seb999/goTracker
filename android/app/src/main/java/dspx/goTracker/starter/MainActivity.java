@@ -1,4 +1,4 @@
-package dspx.goTracker.starter;
+package go.tracker.starter;
 
 import com.getcapacitor.BridgeActivity;
 

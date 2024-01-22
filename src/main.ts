@@ -10,6 +10,7 @@ import { environment } from './environments/environment';
 //added by developer
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireMessagingModule } from '@angular/fire/compat/messaging';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 
 if (environment.production) {
   enableProdMode();
@@ -22,7 +23,9 @@ bootstrapApplication(AppComponent, {
     provideIonicAngular(),
     provideRouter(routes),
     importProvidersFrom([
-      AngularFireModule.initializeApp(environment.firebase),
+      provideFirebaseApp(() => initializeApp(environment.firebase)),
+       AngularFireModule.initializeApp(environment.firebase),
+     
     ])
   ]
 });

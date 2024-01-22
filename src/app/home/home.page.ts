@@ -25,6 +25,7 @@ export class HomePage {
   socket: any;
   connected = false;
   messages: string[] = [];
+  status: any;
 
   ngOnInit() {
     console.log('Initializing HomePage');
@@ -66,13 +67,13 @@ export class HomePage {
 
   connectToSocket() {
     console.log("try to connect ....");
+    this.status = "try to connect ....";
     this.socket = io(this.serverUrl);
-
-   // this.socket = io(this.serverUrl) as SocketIOClient.Socket;;
 
     // Subscribe to a specific event
     this.socket.on('ttn-data', (data: any) => {
       try {
+        console.log("data received");
         const jsonData = JSON.parse(data);
   
         // Now you can access properties of the JSON data

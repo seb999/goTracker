@@ -14,7 +14,7 @@
   </ion-header>
 
   <div id="container">
-    <strong>Ready to create an app?</strong>
+    <strong>goTracker</strong>
     <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
 
     <ion-button (click)="connectToSocket()">Connect</ion-button>
@@ -23,6 +23,7 @@
     <ion-card >
       <ion-card-content>
         <p>Connected to {{ serverUrl }}</p>
+        <p>{{ status }}</p>
         <p *ngFor="let message of messages">{{ message }}</p>
       </ion-card-content>
     </ion-card>

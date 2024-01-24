@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Go Tracker
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -13,20 +13,43 @@
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>goTracker</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <ion-content color="light">
+    <ion-list [inset]="true">
+      <ion-item>
+        <ion-label>Connect to server</ion-label>
+        <ion-button (click)="connectToSocket()">Check</ion-button>
+      </ion-item>
+      <ion-item>
+        <ion-label>Disconnect from server</ion-label>
+        <ion-button (click)="disconnectFromSocket()">Check</ion-button>
+      </ion-item>
+      <ion-item>
+        <ion-toggle [(ngModel)]="pushNotificationsEnabled" [enableOnOffLabels]="true" color="success" (ionChange)="toggleChanged()">
+          <ion-label>Push Notifications</ion-label>
+          <ion-note color="medium">Unsubscribe at any time</ion-note>
+        </ion-toggle>
+      </ion-item>
+    </ion-list>
 
-    <ion-button (click)="connectToSocket()">Connect</ion-button>
-    <ion-button (click)="disconnectFromSocket()">Disconnect</ion-button>
-    
-    <ion-card >
+    <ion-list [inset]="true">
+      <ion-item>
+        <ion-textarea label="Received data" labelPlacement="floating" rows="10" [(ngModel)]="messageList"></ion-textarea>
+      </ion-item>
+    </ion-list>
+
+    <ion-note color="medium" class="ion-margin-horizontal">
+      check network reception here before activation push notification</ion-note
+    >
+  </ion-content>
+
+  <!-- <div id="container">
+
+
+    <ion-card>
       <ion-card-content>
         <p>Connected to {{ serverUrl }}</p>
-        <p>{{ status }}</p>
         <p *ngFor="let message of messages">{{ message }}</p>
       </ion-card-content>
     </ion-card>
-
-  </div>
+  </div> -->
 </ion-content>

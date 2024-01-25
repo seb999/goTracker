@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { IonTextarea, IonLabel, IonNote, IonList, IonItem, IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonCard, IonCardContent, IonToggle } from '@ionic/angular/standalone';
+import { IonChip, IonIcon, IonTextarea, IonLabel, IonNote, IonList, IonItem, IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonCard, IonCardContent, IonToggle } from '@ionic/angular/standalone';
 import { io } from 'socket.io-client';
 import {
   ActionPerformed,
@@ -15,16 +15,17 @@ import {
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   standalone: true,
-  imports: [IonTextarea, FormsModule, IonLabel, IonNote, IonList, IonItem, IonHeader, IonToolbar, IonTitle, IonToggle, IonContent, IonButton, IonCard, IonCardContent, CommonModule],
+  imports: [IonChip, IonIcon, IonTextarea, FormsModule, IonLabel, IonNote, IonList, IonItem, IonHeader, IonToolbar, IonTitle, IonToggle, IonContent, IonButton, IonCard, IonCardContent, CommonModule],
 })
 
 export class HomePage {
   constructor() {
   }
 
-  serverUrl = 'http://13.49.217.91:1884';   //for prod
+  //serverUrl = 'http://13.49.217.91:1884';   //for prod
   //serverUrl = 'http://localhost:1888';     //for test on browser
   //serverUrl = 'http://192.168.1.64:1888';    //for test on Android studio, ip of the computer running goTrackerMQTT
+  serverUrl = 'http://10.3.9.46:1888';    //Office for test on Android studio, ip of the computer running goTrackerMQTT
   //to debug  http://192.168.1.64:1888/socket.io/socket.io.js
   socket: any;
   connected = false;
@@ -94,7 +95,6 @@ export class HomePage {
         // Format the time
         const formattedTime = `${this.padZero(hours)}:${this.padZero(minutes)}:${this.padZero(seconds)}`;
 
-
         // Log or process the data as needed
         console.log(`Received data from ${deviceID}:`, receivedDate);
 
@@ -109,7 +109,7 @@ export class HomePage {
 
     //When connected server, send the token and device
     this.socket.on("client-connected", () => {
-      if (this.token != "") this.socket.emit("firebase-token", { token: this.token, deviceId: "lora1" });
+      if (this.token != "") this.socket.emit("firebase-token", { token: this.token, deviceId: "lora1", isActive: this.pushNotificationsEnabled});
     })
 
     // Connect to the server
@@ -128,7 +128,7 @@ export class HomePage {
   toggleChanged() {
     // Code to execute when the toggle state changes
     console.log('Toggle state changed:', this.pushNotificationsEnabled);
-    this.socket.emit("client-active-notification", { deviceId: "lora1", isActive: this.pushNotificationsEnabled });
+    this.socket.emit("client-set-state", { deviceId: "lora1", isActive: this.pushNotificationsEnabled });
   }
 
   padZero(num : number) {

@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Go Tracker
+      ewrs
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -17,19 +17,25 @@
     <ion-list [inset]="true">
       <ion-item>
         <ion-label>Connect to server</ion-label>
-        <ion-button (click)="connectToSocket()">Check</ion-button>
+        <ion-button (click)="connectToSocket()">Go</ion-button>
       </ion-item>
       <ion-item>
         <ion-label>Disconnect from server</ion-label>
-        <ion-button (click)="disconnectFromSocket()">Check</ion-button>
-      </ion-item>
-      <ion-item>
-        <ion-toggle [(ngModel)]="pushNotificationsEnabled" [enableOnOffLabels]="true" color="success" (ionChange)="toggleChanged()">
-          <ion-label>Push Notifications</ion-label>
-          <ion-note color="medium">Unsubscribe at any time</ion-note>
-        </ion-toggle>
+        <ion-button (click)="disconnectFromSocket()">Go</ion-button>
       </ion-item>
     </ion-list>
+
+    <ion-content color="light">
+      <ion-list [inset]="true">
+        <ion-item>
+         
+          <ion-toggle [(ngModel)]="pushNotificationsEnabled" [enableOnOffLabels]="true" color="success" (ionChange)="toggleChanged()">
+           
+            <ion-label> <ion-icon name="location-outline"></ion-icon> Push Notifications</ion-label>
+            <ion-note color="medium">Unsubscribe at any time</ion-note>
+          </ion-toggle>
+        </ion-item>
+      </ion-list>
 
     <ion-list [inset]="true">
       <ion-item>
@@ -38,7 +44,7 @@
     </ion-list>
 
     <ion-note color="medium" class="ion-margin-horizontal">
-      check network reception here before activation push notification</ion-note
+      check network reception from here</ion-note
     >
   </ion-content>
 
